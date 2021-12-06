@@ -20,10 +20,8 @@ public class Principal {
       banco auxBanco =new banco();
       auxBanco.conectaBanco();
     
-       //auxBanco.criarTabela();
-       
-      //auxBanco.inserebanco(contato);
-      //auxBanco.selectBanco();
+       auxBanco.criarTabela();
+
       PrincipalView tela = new PrincipalView();
       tela.setVisible(true);
       

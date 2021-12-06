@@ -40,7 +40,6 @@ public class banco {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
-        System.out.println("sucesso ao conectar ao banco");
     }
 
     public static void criarTabela() {
@@ -59,9 +58,8 @@ public class banco {
             c.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+            //System.exit(0);
         }
-        System.out.println("Opened database successfully");
     }
 
     public static void inserebanco(Contato cont) {
@@ -75,8 +73,6 @@ public class banco {
             stmt = c.createStatement();
 
             String sql = "INSERT INTO CONTATO (NOME,TELEFONE) " + "VALUES (?,?);";
-            // String sql = "INSERT INTO CONTATO (ID,NOME,TELEFONE) " +"VALUES (? ,?,?)"+(4,n,tel);
-            //stmt.executeUpdate("INSERT INTO CONTATO (ID,NOME,TELEFONE) + VALUES (3 ,?,?)"(n,tel));
 
             PreparedStatement pstm = c.prepareStatement(sql);
 
@@ -95,10 +91,8 @@ public class banco {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
-        System.out.println("Opened database successfully");
     }
 
-    //public static void selectBanco(DefaultTableModel tableContatos, ListaContatos lista){
     public static DefaultTableModel selectBanco(DefaultTableModel tableContatos) {
         try {
             conectaBanco();
@@ -117,16 +111,11 @@ public class banco {
                 String nome = rs.getString("nome");
                 String telefone = rs.getString("telefone");
 
-                // System.out.println("ID = " + id);
-                //System.out.println("NOME = " + nome);
-                //System.out.println("TELEFONE = " + telefone);
                 objetos[0] = nome;
                 objetos[1] = telefone;
                 tableContatos.addRow(objetos);
 
             }
-            //lista.setModel(modelo);
-            //tableContatos.setVisible(true);
 
             rs.close();
             stmt.close();
@@ -134,9 +123,7 @@ public class banco {
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
-            System.out.println("entrou");
         }
-        System.out.println("Rodou");
         return tableContatos;
 
     }
