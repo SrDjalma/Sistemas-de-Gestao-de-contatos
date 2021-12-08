@@ -1,0 +1,3 @@
+Conexão com banco de dados ok, mas na linha 133 o jeito mais fácil de deletar seria por where id = ? não precisando passar nome e telefone.
+view OK
+e Presenter Ok
